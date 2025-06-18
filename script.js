@@ -3,19 +3,23 @@ document.getElementById("change_button").addEventListener("click", function () {
   const color = document.getElementById("colour_id").value.trim();
 
   // Reset all blocks
-  for (let i = 1; i <= 9; i++) {
-    document.getElementById(i.toString()).style.backgroundColor = "transparent";
-  }
+  const gridItems = document.querySelectorAll(".grid-item");
+  gridItems.forEach(item => {
+    item.style.backgroundColor = "transparent";
+  });
 
-  // Apply new color
-  const targetBlock = document.getElementById(blockId);
-  if (targetBlock) {
-    targetBlock.style.backgroundColor = color;
+  // Apply color to selected block
+  const selectedBlock = document.getElementById(blockId);
+  if (selectedBlock) {
+    selectedBlock.style.backgroundColor = color;
+  } else {
+    alert("Invalid Block ID. Please enter a number from 1 to 9.");
   }
 });
 
 document.getElementById("Reset").addEventListener("click", function () {
-  for (let i = 1; i <= 9; i++) {
-    document.getElementById(i.toString()).style.backgroundColor = "transparent";
-  }
+  const gridItems = document.querySelectorAll(".grid-item");
+  gridItems.forEach(item => {
+    item.style.backgroundColor = "transparent";
+  });
 });
