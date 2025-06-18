@@ -1,25 +1,25 @@
-document.getElementById("change_button").addEventListener("click", function () {
-  const blockId = document.getElementById("block_id").value.trim();
-  const color = document.getElementById("colour_id").value.trim();
+window.onload = function () {
+  document.getElementById("change_button").addEventListener("click", function () {
+    const blockId = document.getElementById("block_id").value;
+    const color = document.getElementById("colour_id").value;
 
-  // Reset all blocks
-  const gridItems = document.querySelectorAll(".grid-item");
-  gridItems.forEach(item => {
-    item.style.backgroundColor = "transparent";
+    // Reset all blocks to transparent
+    for (let i = 1; i <= 9; i++) {
+      const box = document.getElementById(i.toString());
+      box.style.backgroundColor = "transparent";
+    }
+
+    // Change color only if valid blockId
+    const target = document.getElementById(blockId);
+    if (target) {
+      target.style.backgroundColor = color;
+    }
   });
 
-  // Apply color to selected block
-  const selectedBlock = document.getElementById(blockId);
-  if (selectedBlock) {
-    selectedBlock.style.backgroundColor = color;
-  } else {
-    alert("Invalid Block ID. Please enter a number from 1 to 9.");
-  }
-});
-
-document.getElementById("Reset").addEventListener("click", function () {
-  const gridItems = document.querySelectorAll(".grid-item");
-  gridItems.forEach(item => {
-    item.style.backgroundColor = "transparent";
+  document.getElementById("Reset").addEventListener("click", function () {
+    for (let i = 1; i <= 9; i++) {
+      const box = document.getElementById(i.toString());
+      box.style.backgroundColor = "transparent";
+    }
   });
-});
+};
