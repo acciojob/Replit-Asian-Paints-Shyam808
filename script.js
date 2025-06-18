@@ -1,24 +1,20 @@
-const changeBtn = document.getElementById("change_button");
-const resetBtn = document.getElementById("Reset");
-
-changeBtn.addEventListener("click", () => {
+document.getElementById("change_button").addEventListener("click", function () {
   const blockId = document.getElementById("block_id").value.trim();
   const color = document.getElementById("colour_id").value.trim();
 
-  // Reset all backgrounds
+  // Reset all blocks
   for (let i = 1; i <= 9; i++) {
     document.getElementById(i.toString()).style.backgroundColor = "transparent";
   }
 
-  const target = document.getElementById(blockId);
-  if (target) {
-    target.style.backgroundColor = color;
-  } else {
-    alert("Invalid Block ID. Please enter a number between 1 and 9.");
+  // Apply new color
+  const targetBlock = document.getElementById(blockId);
+  if (targetBlock) {
+    targetBlock.style.backgroundColor = color;
   }
 });
 
-resetBtn.addEventListener("click", () => {
+document.getElementById("Reset").addEventListener("click", function () {
   for (let i = 1; i <= 9; i++) {
     document.getElementById(i.toString()).style.backgroundColor = "transparent";
   }
